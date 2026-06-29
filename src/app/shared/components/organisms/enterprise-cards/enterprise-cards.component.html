@@ -1,0 +1,34 @@
+<section class="enterprise-cards" aria-labelledby="enterprise-cards-heading">
+  <div class="enterprise-cards__header">
+    <div>
+      <p class="enterprise-cards__eyebrow">Enterprise Cards</p>
+      <h2 id="enterprise-cards-heading">Built for executive clarity and platform scale</h2>
+    </div>
+  </div>
+
+  <div class="enterprise-cards__grid">
+    <article
+      class="enterprise-card"
+      *ngFor="let card of cards; let i = index"
+      [class.enterprise-card--expanded]="expandedId() === i"
+      (mouseenter)="expandedId.set(i)"
+      (mouseleave)="expandedId.set(null)"
+    >
+      <div class="enterprise-card__top">
+        <span class="enterprise-card__badge" [ngClass]="'enterprise-card__badge--' + card.accent">{{ card.badge }}</span>
+        <button class="enterprise-card__toggle" type="button" (click)="toggleCard(i)">
+          {{ expandedId() === i ? '−' : '+' }}
+        </button>
+      </div>
+
+      <h3>{{ card.title }}</h3>
+      <p>{{ card.description }}</p>
+
+      <div class="enterprise-card__details" *ngIf="expandedId() === i">
+        <ul>
+          <li *ngFor="let metric of card.metrics">{{ metric }}</li>
+        </ul>
+      </div>
+    </article>
+  </div>
+</section>

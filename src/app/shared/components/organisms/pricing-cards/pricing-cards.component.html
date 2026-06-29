@@ -1,0 +1,49 @@
+<section class="pricing-cards" aria-labelledby="pricing-cards-heading">
+  <div class="pricing-cards__header">
+    <div>
+      <p class="pricing-cards__eyebrow">Pricing</p>
+      <h2 id="pricing-cards-heading">Choose the plan that matches your momentum</h2>
+    </div>
+
+    <div class="pricing-cards__toggle" role="tablist" aria-label="Billing period">
+      <button
+        type="button"
+        class="pricing-cards__toggle-btn"
+        [class.is-active]="billingMode() === 'monthly'"
+        (click)="toggleBilling('monthly')"
+      >
+        Monthly
+      </button>
+      <button
+        type="button"
+        class="pricing-cards__toggle-btn"
+        [class.is-active]="billingMode() === 'annual'"
+        (click)="toggleBilling('annual')"
+      >
+        Annual
+      </button>
+    </div>
+  </div>
+
+  <div class="pricing-cards__grid">
+    <article class="pricing-card" *ngFor="let tier of tiers" [class.pricing-card--featured]="tier.featured">
+      <div class="pricing-card__top">
+        <h3>{{ tier.name }}</h3>
+        <span class="pricing-card__badge" [ngClass]="'pricing-card__badge--' + tier.accent" *ngIf="tier.featured">Popular</span>
+      </div>
+
+      <p class="pricing-card__description">{{ tier.description }}</p>
+
+      <div class="pricing-card__price">
+        <strong>{{ billingMode() === 'monthly' ? tier.monthlyPrice : tier.annualPrice }}</strong>
+        <span>/month</span>
+      </div>
+
+      <ul class="pricing-card__features">
+        <li *ngFor="let feature of tier.features">{{ feature }}</li>
+      </ul>
+
+      <button class="pricing-card__cta" type="button">Get Started</button>
+    </article>
+  </div>
+</section>

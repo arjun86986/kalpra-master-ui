@@ -7,6 +7,10 @@ import { HeroSectionComponent } from '../../../shared/components/organisms/hero-
 import { DashboardCardsComponent } from '../../../shared/components/organisms/dashboard-cards/dashboard-cards.component';
 import { FeatureCardsComponent } from '../../../shared/components/organisms/feature-cards/feature-cards.component';
 import { ProcessTimelineComponent } from '../../../shared/components/organisms/process-timeline/process-timeline.component';
+import { EnterpriseCardsComponent } from '../../../shared/components/organisms/enterprise-cards/enterprise-cards.component';
+import { PricingCardsComponent } from '../../../shared/components/organisms/pricing-cards/pricing-cards.component';
+import { TestimonialsSliderComponent } from '../../../shared/components/organisms/testimonials-slider/testimonials-slider.component';
+import { PremiumFooterComponent } from '../../../shared/components/organisms/premium-footer/premium-footer.component';
 
 /**
  * Landing Page Component
@@ -26,7 +30,7 @@ import { ProcessTimelineComponent } from '../../../shared/components/organisms/p
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, HeroSectionComponent, DashboardCardsComponent, FeatureCardsComponent, ProcessTimelineComponent],
+  imports: [CommonModule, NavbarComponent, HeroSectionComponent, DashboardCardsComponent, FeatureCardsComponent, ProcessTimelineComponent, EnterpriseCardsComponent, PricingCardsComponent, TestimonialsSliderComponent, PremiumFooterComponent],
   template: `
     <app-navbar></app-navbar>
     
@@ -35,6 +39,10 @@ import { ProcessTimelineComponent } from '../../../shared/components/organisms/p
       <app-dashboard-cards></app-dashboard-cards>
       <app-feature-cards></app-feature-cards>
       <app-process-timeline></app-process-timeline>
+      <app-enterprise-cards></app-enterprise-cards>
+      <app-pricing-cards></app-pricing-cards>
+      <app-testimonials-slider></app-testimonials-slider>
+      <app-premium-footer></app-premium-footer>
 
       <!-- Features Section -->
       <!-- <app-features-section></app-features-section> -->

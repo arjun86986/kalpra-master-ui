@@ -1,0 +1,124 @@
+@use '../../../styles/kalpra-brand' as *;
+
+:host {
+  display: block;
+}
+
+.enterprise-cards {
+  padding: 0 1rem 5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  &__header {
+    margin-bottom: 1.5rem;
+  }
+
+  &__eyebrow {
+    margin: 0 0 0.4rem;
+    color: $color-accent;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.74rem;
+    font-weight: $font-weight-semibold;
+  }
+
+  h2 {
+    margin: 0;
+    max-width: 760px;
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    color: var(--color-text-primary);
+  }
+
+  &__grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 760px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 1100px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+
+.enterprise-card {
+  position: relative;
+  padding: 1.2rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.24);
+  backdrop-filter: blur(14px);
+  transition: transform $duration-base $ease-in-out, border-color $duration-base $ease-in-out, box-shadow $duration-base $ease-in-out;
+  overflow: hidden;
+
+  &:hover,
+  &--expanded {
+    transform: translateY(-4px);
+    border-color: rgba(0, 212, 255, 0.3);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.3);
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+  }
+
+  &__badge {
+    display: inline-flex;
+    padding: 0.38rem 0.65rem;
+    border-radius: $radius-full;
+    font-size: 0.76rem;
+    font-weight: $font-weight-semibold;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  &__badge--cyan { background: rgba(0, 212, 255, 0.16); color: $color-accent; }
+  &__badge--violet { background: rgba(124, 77, 255, 0.16); color: $color-secondary; }
+  &__badge--blue { background: rgba(0, 140, 255, 0.16); color: #5fa8ff; }
+  &__badge--teal { background: rgba(0, 217, 126, 0.16); color: #50e3c2; }
+  &__badge--green { background: rgba(0, 217, 126, 0.16); color: #7cf0b0; }
+  &__badge--pink { background: rgba(255, 71, 87, 0.16); color: #ff7a89; }
+
+  &__toggle {
+    width: 2rem;
+    height: 2rem;
+    border: 0;
+    border-radius: $radius-full;
+    color: var(--color-text-primary);
+    background: rgba(255,255,255,0.12);
+    cursor: pointer;
+  }
+
+  h3 {
+    margin: 0 0 0.5rem;
+    color: var(--color-text-primary);
+    font-size: 1.06rem;
+  }
+
+  p {
+    margin: 0 0 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    font-size: 0.95rem;
+  }
+
+  &__details {
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+
+    ul {
+      margin: 0;
+      padding-left: 1rem;
+      color: var(--color-text-secondary);
+      display: grid;
+      gap: 0.45rem;
+    }
+  }
+}

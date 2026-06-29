@@ -1,0 +1,168 @@
+@use '../../../styles/kalpra-brand' as *;
+
+:host {
+  display: block;
+}
+
+.pricing-cards {
+  padding: 0 1rem 5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  &__eyebrow {
+    margin: 0 0 0.4rem;
+    color: $color-accent;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.74rem;
+    font-weight: $font-weight-semibold;
+  }
+
+  h2 {
+    margin: 0;
+    max-width: 760px;
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+    color: var(--color-text-primary);
+  }
+
+  &__toggle {
+    display: inline-flex;
+    padding: 0.35rem;
+    border-radius: $radius-full;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  &__toggle-btn {
+    border: 0;
+    padding: 0.6rem 0.95rem;
+    border-radius: $radius-full;
+    color: var(--color-text-secondary);
+    background: transparent;
+    cursor: pointer;
+    transition: all $duration-base $ease-in-out;
+
+    &.is-active {
+      color: var(--color-text-primary);
+      background: linear-gradient(135deg, $color-primary, $color-accent);
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 860px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+}
+
+.pricing-card {
+  padding: 1.25rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 16px 36px rgba(0,0,0,0.22);
+  backdrop-filter: blur(14px);
+  transition: transform $duration-base $ease-in-out, border-color $duration-base $ease-in-out;
+
+  &:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 212, 255, 0.3);
+  }
+
+  &--featured {
+    border-color: rgba(0, 212, 255, 0.36);
+    box-shadow: 0 24px 48px rgba(0,0,0,0.28);
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  h3 {
+    margin: 0;
+    color: var(--color-text-primary);
+    font-size: 1.08rem;
+  }
+
+  &__badge {
+    display: inline-flex;
+    padding: 0.3rem 0.6rem;
+    border-radius: $radius-full;
+    font-size: 0.74rem;
+    font-weight: $font-weight-semibold;
+    background: rgba(0, 212, 255, 0.16);
+    color: $color-accent;
+  }
+
+  &__description {
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+  }
+
+  &__price {
+    display: flex;
+    align-items: baseline;
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+
+    strong {
+      font-size: 2rem;
+      color: var(--color-text-primary);
+    }
+
+    span {
+      color: var(--color-text-secondary);
+    }
+  }
+
+  &__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.2rem;
+    display: grid;
+    gap: 0.55rem;
+
+    li {
+      color: var(--color-text-secondary);
+      font-size: 0.94rem;
+      padding-left: 1rem;
+      position: relative;
+
+      &::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        color: $color-accent;
+      }
+    }
+  }
+
+  &__cta {
+    width: 100%;
+    border: 0;
+    border-radius: $radius-full;
+    padding: 0.8rem 1rem;
+    cursor: pointer;
+    font-weight: $font-weight-semibold;
+    color: var(--color-text-primary);
+    background: linear-gradient(135deg, $color-primary, $color-accent);
+  }
+}
