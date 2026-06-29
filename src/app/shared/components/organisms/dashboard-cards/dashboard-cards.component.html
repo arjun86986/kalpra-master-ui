@@ -1,0 +1,32 @@
+<section class="dashboard-cards" aria-labelledby="dashboard-cards-heading">
+  <div class="dashboard-cards__header">
+    <div>
+      <p class="dashboard-cards__eyebrow">Operational Intelligence</p>
+      <h2 id="dashboard-cards-heading">Live engineering pulse</h2>
+    </div>
+    <a href="#insights" class="dashboard-cards__link">View insights</a>
+  </div>
+
+  <div class="dashboard-cards__grid">
+    <article class="card" *ngFor="let card of cards">
+      <div class="card__top">
+        <div>
+          <h3>{{ card.title }}</h3>
+          <p>{{ card.detail }}</p>
+        </div>
+        <span class="card__badge" [ngClass]="'card__badge--' + card.accent">{{ card.value }}</span>
+      </div>
+
+      <div class="card__chart" aria-hidden="true">
+        <span *ngFor="let point of card.chart" [style.height.%]="point"></span>
+      </div>
+
+      <div class="card__footer">
+        <div class="card__progress">
+          <div class="card__progress-bar" [style.width.%]="card.progress"></div>
+        </div>
+        <strong>{{ card.progress }}%</strong>
+      </div>
+    </article>
+  </div>
+</section>

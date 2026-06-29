@@ -1,0 +1,27 @@
+<section class="process-timeline" aria-labelledby="process-timeline-heading">
+  <div class="process-timeline__header">
+    <p class="process-timeline__eyebrow">Four Steps</p>
+    <h2 id="process-timeline-heading">From signal to action in four elegant steps</h2>
+  </div>
+
+  <div class="process-timeline__layout">
+    <div class="process-timeline__svg" aria-hidden="true">
+      <svg viewBox="0 0 800 400" role="presentation">
+        <path d="M120 220 C240 220, 280 160, 400 160 S560 220, 690 220" />
+        <circle cx="120" cy="220" r="8" />
+        <circle cx="400" cy="160" r="8" />
+        <circle cx="690" cy="220" r="8" />
+      </svg>
+    </div>
+
+    <div class="process-timeline__steps">
+      <article class="step" *ngFor="let step of steps; let i = index">
+        <div class="step__index">0{{ i + 1 }}</div>
+        <div class="step__content">
+          <h3>{{ step.title }}</h3>
+          <p>{{ step.description }}</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>

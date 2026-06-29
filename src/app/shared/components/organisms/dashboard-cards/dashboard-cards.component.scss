@@ -1,0 +1,154 @@
+@use '../../../styles/kalpra-brand' as *;
+
+:host {
+  display: block;
+}
+
+.dashboard-cards {
+  position: relative;
+  padding: 0 1rem 5rem;
+  max-width: 1280px;
+  margin: -1.5rem auto 0;
+
+  &__header {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  &__eyebrow {
+    margin: 0 0 0.4rem;
+    color: $color-accent;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 0.74rem;
+    font-weight: $font-weight-semibold;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    color: var(--color-text-primary);
+  }
+
+  &__link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: $font-weight-medium;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @media (min-width: 1100px) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+}
+
+.card {
+  padding: 1rem;
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.11), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.24);
+  backdrop-filter: blur(16px);
+  transition: transform $duration-base $ease-in-out, border-color $duration-base $ease-in-out;
+
+  &:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 212, 255, 0.28);
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    margin: 0 0 0.3rem;
+    font-size: 1rem;
+    color: var(--color-text-primary);
+  }
+
+  p {
+    margin: 0;
+    font-size: 0.86rem;
+    color: var(--color-text-secondary);
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 3rem;
+    padding: 0.42rem 0.6rem;
+    border-radius: $radius-full;
+    font-size: 0.82rem;
+    font-weight: $font-weight-semibold;
+    color: var(--color-text-primary);
+    background: rgba(255,255,255,0.12);
+  }
+
+  &__badge--cyan { background: rgba(0, 212, 255, 0.16); color: $color-accent; }
+  &__badge--purple { background: rgba(124, 77, 255, 0.16); color: $color-secondary; }
+  &__badge--violet { background: rgba(108, 92, 231, 0.16); color: $color-primary; }
+  &__badge--teal { background: rgba(0, 217, 126, 0.16); color: #50e3c2; }
+  &__badge--blue { background: rgba(0, 140, 255, 0.16); color: #5fa8ff; }
+  &__badge--green { background: rgba(0, 217, 126, 0.16); color: #7cf0b0; }
+  &__badge--orange { background: rgba(255, 178, 36, 0.16); color: #ffbf47; }
+  &__badge--pink { background: rgba(255, 71, 87, 0.16); color: #ff7a89; }
+
+  &__chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.35rem;
+    height: 68px;
+    margin-bottom: 1rem;
+
+    span {
+      flex: 1;
+      border-radius: 999px 999px 0 0;
+      background: linear-gradient(180deg, rgba(0, 212, 255, 0.95), rgba(108, 92, 231, 0.9));
+      min-height: 8px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+
+  &__progress {
+    flex: 1;
+    height: 7px;
+    border-radius: $radius-full;
+    background: rgba(255,255,255,0.08);
+    overflow: hidden;
+  }
+
+  &__progress-bar {
+    height: 100%;
+    border-radius: inherit;
+    background: linear-gradient(90deg, $color-primary, $color-accent);
+  }
+}

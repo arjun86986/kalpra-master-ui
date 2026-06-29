@@ -1,0 +1,16 @@
+<section class="feature-cards" aria-labelledby="feature-cards-heading">
+  <div class="feature-cards__header">
+    <div>
+      <p class="feature-cards__eyebrow">Platform Modules</p>
+      <h2 id="feature-cards-heading">Everything your team needs to ship with clarity</h2>
+    </div>
+  </div>
+
+  <div class="feature-cards__grid">
+    <article class="feature-card" *ngFor="let card of cards">
+      <div class="feature-card__icon" [ngClass]="'feature-card__icon--' + card.accent" aria-hidden="true">{{ card.icon }}</div>
+      <h3>{{ card.title }}</h3>
+      <p>{{ card.description }}</p>
+    </article>
+  </div>
+</section>

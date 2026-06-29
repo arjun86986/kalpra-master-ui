@@ -4,6 +4,9 @@ import { SeoService, AnalyticsService } from '../../../core/services';
 import { LandingDataService } from '../services/landing-data.service';
 import { NavbarComponent } from '../../../shared/components/organisms/navbar/navbar.component';
 import { HeroSectionComponent } from '../../../shared/components/organisms/hero-section/hero-section.component';
+import { DashboardCardsComponent } from '../../../shared/components/organisms/dashboard-cards/dashboard-cards.component';
+import { FeatureCardsComponent } from '../../../shared/components/organisms/feature-cards/feature-cards.component';
+import { ProcessTimelineComponent } from '../../../shared/components/organisms/process-timeline/process-timeline.component';
 
 /**
  * Landing Page Component
@@ -23,12 +26,15 @@ import { HeroSectionComponent } from '../../../shared/components/organisms/hero-
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, HeroSectionComponent],
+  imports: [CommonModule, NavbarComponent, HeroSectionComponent, DashboardCardsComponent, FeatureCardsComponent, ProcessTimelineComponent],
   template: `
     <app-navbar></app-navbar>
     
     <main class="landing-page" id="main-content" role="main">
       <app-hero-section></app-hero-section>
+      <app-dashboard-cards></app-dashboard-cards>
+      <app-feature-cards></app-feature-cards>
+      <app-process-timeline></app-process-timeline>
 
       <!-- Features Section -->
       <!-- <app-features-section></app-features-section> -->
