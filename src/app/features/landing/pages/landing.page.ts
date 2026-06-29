@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SeoService, AnalyticsService } from '../../../core/services';
 import { LandingDataService } from '../services/landing-data.service';
 import { NavbarComponent } from '../../../shared/components/organisms/navbar/navbar.component';
+import { HeroSectionComponent } from '../../../shared/components/organisms/hero-section/hero-section.component';
 
 /**
  * Landing Page Component
@@ -22,13 +23,12 @@ import { NavbarComponent } from '../../../shared/components/organisms/navbar/nav
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule, NavbarComponent],
+  imports: [CommonModule, NavbarComponent, HeroSectionComponent],
   template: `
     <app-navbar></app-navbar>
     
     <main class="landing-page" id="main-content" role="main">
-      <!-- Hero Section -->
-      <!-- <app-hero-section></app-hero-section> -->
+      <app-hero-section></app-hero-section>
 
       <!-- Features Section -->
       <!-- <app-features-section></app-features-section> -->
@@ -39,14 +39,6 @@ import { NavbarComponent } from '../../../shared/components/organisms/navbar/nav
       <!-- Footer Section -->
       <!-- <app-footer-section></app-footer-section> -->
 
-      <!-- Placeholder content -->
-      <section class="landing-hero" aria-label="Welcome to Kalpra">
-        <div class="container">
-          <h1>Welcome to Kalpra</h1>
-          <p>Production-ready Angular 21 landing page with Signals and Standalone Components</p>
-          <p class="info-text">Sections to be implemented...</p>
-        </div>
-      </section>
     </main>
   `,
   styleUrls: ['./landing.page.scss'],
