@@ -1,0 +1,62 @@
+<!--
+  Kalpra - Premium Navbar Template
+  Sticky | Responsive | Glassmorphism
+-->
+
+<nav
+  class="navbar"
+  [class.navbar--scrolled]="isScrolled()"
+  [class.navbar--mobile-menu-open]="isMenuOpen() && isMobile()"
+>
+  <!-- Navbar Container -->
+  <div class="navbar-container">
+    <!-- Logo Section -->
+    <div class="navbar-logo">
+      <a href="#" class="logo-link" (click)="closeMenu()">
+        <div class="logo-icon">K</div>
+        <span class="logo-text">KALPRA</span>
+      </a>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="navbar-menu" [class.navbar-menu--open]="isMenuOpen()">
+      <!-- Navigation Links -->
+      <ul class="navbar-links">
+        <li *ngFor="let link of navLinks" class="navbar-link-item">
+          <a
+            [href]="link.href"
+            class="navbar-link"
+            (click)="onNavLinkClick()"
+          >
+            {{ link.label }}
+          </a>
+        </li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="navbar-actions">
+        <button class="btn btn-ghost navbar-btn-login">
+          <span class="btn-icon">👤</span>
+          Login
+        </button>
+        <button class="btn btn-accent navbar-btn-demo">
+          Book Demo
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Toggle -->
+    <button
+      class="navbar-toggle"
+      (click)="toggleMenu()"
+      [attr.aria-label]="isMenuOpen() ? 'Close menu' : 'Open menu'"
+      [attr.aria-expanded]="isMenuOpen()"
+    >
+      <span class="hamburger" [class.hamburger--active]="isMenuOpen()">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </span>
+    </button>
+  </div>
+</nav>

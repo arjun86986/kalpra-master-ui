@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+ * Global Application Styles Entry Point
+ * Imports Kalpra Premium Design System
+ */
+
+@use 'app/shared/styles/kalpra-brand' as *;
+@use 'app/shared/styles/mixins' as *;
+@use 'app/shared/styles/global' as *;
+
+// Additional global overrides can be added here as needed

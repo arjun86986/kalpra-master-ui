@@ -1,13 +1,51 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>KalpraMaster</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Kalpra - Production Ready Landing Page</title>
+    <base href="/" />
+
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Meta Tags (will be updated by SeoService) -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <meta
+      name="description"
+      content="Modern, scalable Angular 21 landing page with Signals and Standalone Components"
+    />
+    <meta name="theme-color" content="#4A90E2" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+    <!-- Preload critical resources -->
+    <link rel="preload" as="style" href="styles.css" />
+
+    <!-- Performance: Prefetch DNS for analytics -->
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+  </head>
+  <body>
+    <app-root id="main-content" role="main"></app-root>
+
+    <!-- Google Analytics (uncomment and replace with your ID) -->
+    <!-- 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=YOUR_GA_ID"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'YOUR_GA_ID');
+    </script>
+    -->
+
+    <!-- No-script fallback for accessibility -->
+    <noscript>
+      <p>This application requires JavaScript to be enabled for optimal experience.</p>
+    </noscript>
+  </body>
 </html>

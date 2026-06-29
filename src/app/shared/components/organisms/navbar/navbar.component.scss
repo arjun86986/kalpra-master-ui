@@ -1,0 +1,429 @@
+/**
+ * Kalpra - Premium Navbar Styles
+ * 
+ * Features:
+ * - Glassmorphism with backdrop blur
+ * - Sticky positioning
+ * - Responsive design
+ * - Smooth animations
+ */
+
+@use '@app/shared/styles/kalpra-brand' as *;
+@use '@app/shared/styles/mixins' as *;
+
+// ============================================================
+// Navbar Base
+// ============================================================
+
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-index-fixed, 1020);
+  
+  // Glassmorphism effect
+  background: rgba(15, 20, 34, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(42, 48, 72, 0.3);
+  
+  transition: all $duration-base $ease-in-out;
+
+  &--scrolled {
+    background: rgba(15, 20, 34, 0.85);
+    backdrop-filter: blur(16px);
+    border-bottom-color: rgba(42, 48, 72, 0.5);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+// ============================================================
+// Navbar Container
+// ============================================================
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    padding: 1rem 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding: 1rem 3rem;
+  }
+}
+
+// ============================================================
+// Logo Section
+// ============================================================
+
+.navbar-logo {
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  transition: all $duration-base $ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 4px;
+    border-radius: $radius-md;
+  }
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, $color-primary 0%, $color-secondary 100%);
+  border-radius: $radius-md;
+  color: var(--color-text-primary);
+  font-weight: $font-weight-bold;
+  font-size: 1.25rem;
+  box-shadow: var(--shadow-md), var(--shadow-glow-primary);
+}
+
+.logo-text {
+  font-weight: $font-weight-bold;
+  font-size: 1.25rem;
+  color: var(--color-text-primary);
+  letter-spacing: 0.1em;
+
+  @media (max-width: 480px) {
+    display: none;
+  }
+}
+
+// ============================================================
+// Navigation Menu
+// ============================================================
+
+.navbar-menu {
+  display: none;
+  align-items: center;
+  gap: 2rem;
+  flex: 1;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    display: flex;
+  }
+
+  @media (max-width: 767px) {
+    // Mobile menu styling
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(15, 20, 34, 0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(42, 48, 72, 0.3);
+    padding: 1rem;
+    border-radius: 0 0 $radius-lg $radius-lg;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height $duration-slow $ease-in-out;
+
+    &.navbar-menu--open {
+      max-height: 400px;
+    }
+  }
+}
+
+// ============================================================
+// Navigation Links
+// ============================================================
+
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+
+  @media (min-width: 768px) {
+    gap: 2rem;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+}
+
+.navbar-link-item {
+  position: relative;
+
+  @media (max-width: 767px) {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid rgba(42, 48, 72, 0.2);
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}
+
+.navbar-link {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: $font-weight-medium;
+  color: var(--color-text-primary);
+  text-decoration: none;
+  transition: all $duration-base $ease-in-out;
+  position: relative;
+  padding: 0.5rem 0;
+
+  @media (min-width: 768px) {
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, $color-primary, $color-accent);
+      transition: width $duration-base $ease-in-out;
+    }
+
+    &:hover {
+      color: var(--color-accent);
+
+      &::after {
+        width: 100%;
+      }
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 4px;
+      border-radius: $radius-sm;
+    }
+  }
+
+  @media (max-width: 767px) {
+    padding: 0;
+
+    &:hover {
+      color: var(--color-accent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 4px;
+    }
+  }
+}
+
+// ============================================================
+// Action Buttons
+// ============================================================
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: 2rem;
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+    margin-left: 0;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(42, 48, 72, 0.3);
+  }
+}
+
+.navbar-btn-login {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+
+  .btn-icon {
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    .btn-icon {
+      display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+.navbar-btn-demo {
+  white-space: nowrap;
+
+  @media (max-width: 767px) {
+    width: 100%;
+  }
+}
+
+// ============================================================
+// Mobile Menu Toggle (Hamburger)
+// ============================================================
+
+.navbar-toggle {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 20;
+
+  @media (max-width: 767px) {
+    display: flex;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: $radius-md;
+  }
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 24px;
+  height: 20px;
+  position: relative;
+}
+
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, $color-primary, $color-accent);
+  border-radius: 1px;
+  transition: all $duration-base $ease-in-out;
+  transform-origin: center;
+
+  .hamburger--active & {
+    &:nth-child(1) {
+      transform: translateY(12px) rotate(45deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0;
+    }
+
+    &:nth-child(3) {
+      transform: translateY(-12px) rotate(-45deg);
+    }
+  }
+}
+
+// ============================================================
+// Mobile Menu Open State
+// ============================================================
+
+.navbar--mobile-menu-open {
+  .navbar-container {
+    background: rgba(15, 20, 34, 0.95);
+    border-bottom: 1px solid rgba(42, 48, 72, 0.3);
+  }
+}
+
+// ============================================================
+// Animations
+// ============================================================
+
+@keyframes slideDownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar-link {
+  animation: slideDownFade $duration-base $ease-in-out forwards;
+
+  @for $i from 1 through 6 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 50}ms;
+    }
+  }
+}
+
+// ============================================================
+// Accessibility
+// ============================================================
+
+@media (prefers-reduced-motion: reduce) {
+  .navbar,
+  .navbar-menu,
+  .navbar-link,
+  .logo-link,
+  .hamburger-line {
+    transition: none;
+    animation: none;
+  }
+}
+
+// ============================================================
+// High Contrast Mode
+// ============================================================
+
+@media (prefers-contrast: more) {
+  .navbar {
+    border-bottom-width: 2px;
+  }
+
+  .navbar-link {
+    text-decoration: underline;
+  }
+}
+
+// ============================================================
+// Print Styles
+// ============================================================
+
+@media print {
+  .navbar {
+    position: static;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+
+    .navbar-toggle {
+      display: none;
+    }
+  }
+}

@@ -1,12 +1,24 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core';
+/**
+ * Application Configuration
+ * Main application setup and providers
+ */
+
+import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
+import { provideClientHydration } from '@angular/platform-browser';
 
-import { routes } from './app.routes';
-import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { APP_ROUTES } from './app.routes';
 
+/**
+ * Core application providers
+ * Configure all application-level services and settings
+ */
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideRouter(routes), provideClientHydration(withEventReplay())
-  ]
+    provideRouter(APP_ROUTES),
+    provideClientHydration(),
+    // Add other providers as needed
+    // provideHttpClient(),
+    // provideAnimations(),
+  ],
 };

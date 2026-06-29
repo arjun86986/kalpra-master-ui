@@ -1,0 +1,40 @@
+@use '../../../shared/styles/mixins' as *;
+
+.landing-page {
+  flex: 1;
+}
+
+.landing-hero {
+  padding: var(--space-20);
+  text-align: center;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+  color: var(--color-text-inverse);
+
+  .container {
+    @include container;
+  }
+
+  h1 {
+    @include heading-1;
+    color: var(--color-text-inverse);
+    margin-bottom: var(--space-6);
+  }
+
+  p {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-4);
+
+    @include respond-to('mobile') {
+      font-size: var(--font-size-base);
+    }
+  }
+
+  .info-text {
+    font-style: italic;
+    opacity: 0.9;
+  }
+}
