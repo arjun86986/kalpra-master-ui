@@ -6,6 +6,7 @@
 import { ApplicationConfig } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideClientHydration } from '@angular/platform-browser';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 import { APP_ROUTES } from './app.routes';
 
@@ -17,8 +18,8 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(APP_ROUTES),
     provideClientHydration(),
+    provideAnimations(),
     // Add other providers as needed
     // provideHttpClient(),
-    // provideAnimations(),
   ],
 };

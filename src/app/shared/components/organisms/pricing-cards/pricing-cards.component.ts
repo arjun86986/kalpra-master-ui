@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 interface PricingTier {
   name: string;
@@ -17,6 +18,14 @@ interface PricingTier {
   imports: [CommonModule],
   templateUrl: './pricing-cards.component.html',
   styleUrls: ['./pricing-cards.component.scss'],
+  animations: [
+    trigger('fadeSlideIn', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(20px)' }),
+        animate('750ms cubic-bezier(0.22, 1, 0.36, 1)', style({ opacity: 1, transform: 'translateY(0)' })),
+      ]),
+    ]),
+  ],
 })
 export class PricingCardsComponent {
   readonly billingMode = signal<'monthly' | 'annual'>('monthly');

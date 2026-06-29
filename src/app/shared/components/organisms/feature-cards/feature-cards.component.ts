@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 
 interface FeatureCard {
   icon: string;
@@ -14,6 +15,16 @@ interface FeatureCard {
   imports: [CommonModule],
   templateUrl: './feature-cards.component.html',
   styleUrls: ['./feature-cards.component.scss'],
+  animations: [
+    trigger('staggerCards', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0, transform: 'translateY(16px)' }),
+          stagger('90ms', [animate('650ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))]),
+        ], { optional: true }),
+      ]),
+    ]),
+  ],
 })
 export class FeatureCardsComponent {
   readonly cards: FeatureCard[] = [

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 
 interface DashboardCard {
   title: string;
@@ -16,6 +17,16 @@ interface DashboardCard {
   imports: [CommonModule],
   templateUrl: './dashboard-cards.component.html',
   styleUrls: ['./dashboard-cards.component.scss'],
+  animations: [
+    trigger('staggerCards', [
+      transition('* => *', [
+        query(':enter', [
+          style({ opacity: 0, transform: 'translateY(16px)' }),
+          stagger('90ms', [animate('650ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))]),
+        ], { optional: true }),
+      ]),
+    ]),
+  ],
 })
 export class DashboardCardsComponent {
   readonly cards: DashboardCard[] = [

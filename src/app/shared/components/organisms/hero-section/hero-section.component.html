@@ -1,8 +1,8 @@
-<section class="hero" aria-labelledby="hero-heading">
+<section class="hero" aria-labelledby="hero-heading" #heroSection>
   <div class="hero__background" aria-hidden="true"></div>
 
   <div class="hero__content">
-    <div class="hero__copy">
+    <div class="hero__copy" [@heroReveal]="reveal() ? 'visible' : 'hidden'">
       <div class="eyebrow">
         <span class="eyebrow__dot"></span>
         Engineering Intelligence, Powered by AI
@@ -34,7 +34,7 @@
       </ul>
     </div>
 
-    <div class="hero__visual" aria-label="3D dashboard mockup">
+    <div class="hero__visual" [@heroParallax]="drift()" aria-label="3D dashboard mockup">
       <div class="dashboard">
         <div class="dashboard__topbar">
           <span></span>
@@ -45,7 +45,7 @@
         <div class="dashboard__body">
           <div class="panel panel--main">
             <div class="panel__label">Delivery Health</div>
-            <div class="panel__value">97.4%</div>
+            <div class="panel__value" [@counterFade]>{{ deliveryScore() }}%</div>
             <div class="panel__chart">
               <span></span>
               <span></span>

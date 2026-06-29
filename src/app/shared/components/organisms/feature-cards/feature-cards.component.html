@@ -6,7 +6,7 @@
     </div>
   </div>
 
-  <div class="feature-cards__grid">
+  <div class="feature-cards__grid" @staggerCards>
     <article class="feature-card" *ngFor="let card of cards">
       <div class="feature-card__icon" [ngClass]="'feature-card__icon--' + card.accent" aria-hidden="true">{{ card.icon }}</div>
       <h3>{{ card.title }}</h3>

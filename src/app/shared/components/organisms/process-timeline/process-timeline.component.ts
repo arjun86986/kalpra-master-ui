@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { animate, style, transition, trigger } from '@angular/animations';
 
 interface ProcessStep {
   title: string;
@@ -13,6 +14,14 @@ interface ProcessStep {
   imports: [CommonModule],
   templateUrl: './process-timeline.component.html',
   styleUrls: ['./process-timeline.component.scss'],
+  animations: [
+    trigger('fadeSlideIn', [
+      transition(':enter', [
+        style({ opacity: 0, transform: 'translateY(18px)' }),
+        animate('700ms ease-out', style({ opacity: 1, transform: 'translateY(0)' })),
+      ]),
+    ]),
+  ],
 })
 export class ProcessTimelineComponent {
   readonly steps: ProcessStep[] = [

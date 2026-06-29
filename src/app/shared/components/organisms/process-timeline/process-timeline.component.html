@@ -15,7 +15,7 @@
     </div>
 
     <div class="process-timeline__steps">
-      <article class="step" *ngFor="let step of steps; let i = index">
+      <article class="step" *ngFor="let step of steps; let i = index" [@fadeSlideIn]>
         <div class="step__index">0{{ i + 1 }}</div>
         <div class="step__content">
           <h3>{{ step.title }}</h3>
