@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
 
 interface Testimonial {
   company: string;
@@ -13,7 +14,7 @@ interface Testimonial {
 @Component({
   selector: 'app-testimonials-slider',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollRevealDirective],
   templateUrl: './testimonials-slider.component.html',
   styleUrls: ['./testimonials-slider.component.scss'],
 })
@@ -46,6 +47,10 @@ export class TestimonialsSliderComponent {
       avatar: 'SA',
     },
   ];
+
+  goTo(index: number): void {
+    this.activeIndex.set(index);
+  }
 
   next(): void {
     this.activeIndex.set((this.activeIndex() + 1) % this.testimonials.length);

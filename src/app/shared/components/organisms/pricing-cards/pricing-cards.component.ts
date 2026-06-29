@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { animate, style, transition, trigger } from '@angular/animations';
+import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
 
 interface PricingTier {
   name: string;
@@ -15,17 +15,9 @@ interface PricingTier {
 @Component({
   selector: 'app-pricing-cards',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollRevealDirective],
   templateUrl: './pricing-cards.component.html',
   styleUrls: ['./pricing-cards.component.scss'],
-  animations: [
-    trigger('fadeSlideIn', [
-      transition(':enter', [
-        style({ opacity: 0, transform: 'translateY(20px)' }),
-        animate('750ms cubic-bezier(0.22, 1, 0.36, 1)', style({ opacity: 1, transform: 'translateY(0)' })),
-      ]),
-    ]),
-  ],
 })
 export class PricingCardsComponent {
   readonly billingMode = signal<'monthly' | 'annual'>('monthly');
@@ -35,7 +27,7 @@ export class PricingCardsComponent {
       name: 'Starter',
       monthlyPrice: '$29',
       annualPrice: '$24',
-      description: 'For fast-moving teams who want visibility without complexity.',
+      description: 'Visibility without complexity.',
       features: ['Up to 3 integrations', 'Basic AI insights', 'Weekly reports'],
       accent: 'cyan',
     },
@@ -43,7 +35,7 @@ export class PricingCardsComponent {
       name: 'Growth',
       monthlyPrice: '$79',
       annualPrice: '$69',
-      description: 'For scaling organizations that need deeper execution context.',
+      description: 'Deeper execution context for scaling teams.',
       features: ['Unlimited integrations', 'Advanced analytics', 'Priority support'],
       featured: true,
       accent: 'violet',
@@ -52,7 +44,7 @@ export class PricingCardsComponent {
       name: 'Enterprise',
       monthlyPrice: '$199',
       annualPrice: '$159',
-      description: 'For global teams that need governance, customization, and security.',
+      description: 'Governance, customization, and security.',
       features: ['SSO & audit logs', 'Custom reports', 'Dedicated success manager'],
       accent: 'blue',
     },

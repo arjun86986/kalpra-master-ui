@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import { ScrollRevealDirective } from '../../../directives/scroll-reveal.directive';
 
 interface FeatureCard {
   icon: string;
@@ -12,31 +12,21 @@ interface FeatureCard {
 @Component({
   selector: 'app-feature-cards',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ScrollRevealDirective],
   templateUrl: './feature-cards.component.html',
   styleUrls: ['./feature-cards.component.scss'],
-  animations: [
-    trigger('staggerCards', [
-      transition('* => *', [
-        query(':enter', [
-          style({ opacity: 0, transform: 'translateY(16px)' }),
-          stagger('90ms', [animate('650ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))]),
-        ], { optional: true }),
-      ]),
-    ]),
-  ],
 })
 export class FeatureCardsComponent {
   readonly cards: FeatureCard[] = [
-    { icon: '✦', title: 'AI Insights', description: 'Turn engineering signals into proactive recommendations with AI guidance.', accent: 'cyan' },
-    { icon: '◧', title: 'Architecture', description: 'Model system health, dependencies, and reliability in one view.', accent: 'violet' },
-    { icon: '⚡', title: 'Engineering Health', description: 'Measure delivery confidence, risk, and change momentum instantly.', accent: 'blue' },
-    { icon: '◌', title: 'Storybook', description: 'Monitor component adoption and visual consistency across teams.', accent: 'purple' },
-    { icon: '⬢', title: 'Design Systems', description: 'Track design system usage, maturity, and contribution velocity.', accent: 'teal' },
-    { icon: '♿', title: 'Accessibility', description: 'Surface accessibility gaps and compliance signals before release.', accent: 'pink' },
-    { icon: '⌘', title: 'GitHub', description: 'Connect pull requests, code quality, and release context seamlessly.', accent: 'green' },
-    { icon: '✓', title: 'Jira', description: 'Align roadmap delivery, risk, and execution across the org.', accent: 'orange' },
-    { icon: '◍', title: 'Figma', description: 'Bridge design intent to engineering effort in real time.', accent: 'cyan' },
-    { icon: '⟲', title: 'CI/CD', description: 'Unify build health, deployment impact, and recovery insights.', accent: 'violet' },
+    { icon: '✦', title: 'AI Insights', description: 'Proactive recommendations from engineering signals.', accent: 'cyan' },
+    { icon: '◧', title: 'Architecture', description: 'System health, dependencies, and reliability in one view.', accent: 'violet' },
+    { icon: '⚡', title: 'Engineering Health', description: 'Delivery confidence, risk, and change momentum.', accent: 'blue' },
+    { icon: '◌', title: 'Storybook', description: 'Component adoption and visual consistency.', accent: 'purple' },
+    { icon: '⬢', title: 'Design Systems', description: 'Usage, maturity, and contribution velocity.', accent: 'teal' },
+    { icon: '♿', title: 'Accessibility', description: 'Compliance signals before every release.', accent: 'pink' },
+    { icon: '⌘', title: 'GitHub', description: 'Pull requests, code quality, and release context.', accent: 'green' },
+    { icon: '✓', title: 'Jira', description: 'Roadmap delivery, risk, and execution alignment.', accent: 'orange' },
+    { icon: '◍', title: 'Figma', description: 'Design intent to engineering effort, real time.', accent: 'cyan' },
+    { icon: '⟲', title: 'CI/CD', description: 'Build health, deployment impact, and recovery.', accent: 'violet' },
   ];
 }

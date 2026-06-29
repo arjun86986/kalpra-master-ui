@@ -1,32 +1,37 @@
-<section class="hero" aria-labelledby="hero-heading" #heroSection>
-  <div class="hero__background" aria-hidden="true"></div>
+<section class="hero" id="hero" aria-labelledby="hero-heading" #heroSection>
+  <div class="hero__background" aria-hidden="true">
+    <div class="hero__orb hero__orb--1"></div>
+    <div class="hero__orb hero__orb--2"></div>
+  </div>
 
   <div class="hero__content">
     <div class="hero__copy" [@heroReveal]="reveal() ? 'visible' : 'hidden'">
-      <div class="eyebrow">
-        <span class="eyebrow__dot"></span>
-        Engineering Intelligence, Powered by AI
-      </div>
+      <p class="hero__eyebrow">
+        <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+        Engineering Intelligence
+      </p>
 
       <h1 id="hero-heading">
-        Engineering Intelligence<br />
-        <span>Powered by AI.</span>
+        Ship faster.<br />
+        <span>Decide smarter.</span>
       </h1>
 
       <p class="hero__subheading">
-        Help engineering leaders make better decisions using AI-driven insights across GitHub,
-        Jira, Storybook, CI/CD, and Design Systems.
+        AI-driven insights across GitHub, Jira, Storybook, and CI/CD —
+        so engineering leaders see the full picture, instantly.
       </p>
 
       <div class="hero__actions">
-        <a class="hero__button hero__button--primary" href="#demo">Book Demo</a>
-        <a class="hero__button hero__button--secondary" href="#video">
-          <span class="hero__play" aria-hidden="true">▶</span>
-          Watch Video
+        <a class="btn-premium-primary" href="#pricing">Get Started</a>
+        <a class="btn-premium-secondary" href="#process">
+          <span class="hero__play" aria-hidden="true">
+            <svg width="10" height="12" viewBox="0 0 10 12" fill="currentColor"><path d="M0 0v12l10-6z"/></svg>
+          </span>
+          See how it works
         </a>
       </div>
 
-      <ul class="hero__trust" aria-label="Trusted platforms">
+      <ul class="hero__trust" aria-label="Integrated platforms">
         <li>GitHub</li>
         <li>Jira</li>
         <li>Storybook</li>
@@ -34,58 +39,38 @@
       </ul>
     </div>
 
-    <div class="hero__visual" [@heroParallax]="drift()" aria-label="3D dashboard mockup">
+    <div class="hero__visual" [@heroParallax]="drift()" aria-hidden="true">
       <div class="dashboard">
         <div class="dashboard__topbar">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </div>
-
         <div class="dashboard__body">
           <div class="panel panel--main">
             <div class="panel__label">Delivery Health</div>
             <div class="panel__value" [@counterFade]>{{ deliveryScore() }}%</div>
             <div class="panel__chart">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span></span><span></span><span></span><span></span><span></span>
             </div>
           </div>
-
           <div class="panel panel--side">
             <div class="panel__label">Automations</div>
             <div class="panel__value">128</div>
             <div class="panel__pill">+24% this week</div>
-          </div>
-
-          <div class="panel panel--small">
-            <div class="panel__label">Design System</div>
-            <div class="panel__value">84</div>
-            <div class="panel__mini"></div>
           </div>
         </div>
       </div>
 
       <div class="floating-card floating-card--github">
         <span class="floating-card__icon">⌘</span>
-        <strong>GitHub</strong>
+        <span>GitHub</span>
       </div>
-
       <div class="floating-card floating-card--jira">
         <span class="floating-card__icon">✓</span>
-        <strong>Jira</strong>
+        <span>Jira</span>
       </div>
-
       <div class="floating-card floating-card--storybook">
         <span class="floating-card__icon">◧</span>
-        <strong>Storybook</strong>
-      </div>
-
-      <div class="floating-card floating-card--slack">
-        <span class="floating-card__icon">✦</span>
-        <strong>Slack</strong>
+        <span>Storybook</span>
       </div>
     </div>
   </div>

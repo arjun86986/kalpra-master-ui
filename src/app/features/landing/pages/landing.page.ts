@@ -12,47 +12,34 @@ import { PricingCardsComponent } from '../../../shared/components/organisms/pric
 import { TestimonialsSliderComponent } from '../../../shared/components/organisms/testimonials-slider/testimonials-slider.component';
 import { PremiumFooterComponent } from '../../../shared/components/organisms/premium-footer/premium-footer.component';
 
-/**
- * Landing Page Component
- * 
- * Main page component that combines all landing page sections
- * - Manages SEO metadata
- * - Tracks page views
- * - Loads landing page data
- * 
- * Sections to be added:
- * - Hero Section
- * - Features Section
- * - CTA Section
- * - Testimonials Section
- * - Footer Section
- */
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [CommonModule, NavbarComponent, HeroSectionComponent, DashboardCardsComponent, FeatureCardsComponent, ProcessTimelineComponent, EnterpriseCardsComponent, PricingCardsComponent, TestimonialsSliderComponent, PremiumFooterComponent],
+  imports: [
+    CommonModule,
+    NavbarComponent,
+    HeroSectionComponent,
+    DashboardCardsComponent,
+    FeatureCardsComponent,
+    ProcessTimelineComponent,
+    EnterpriseCardsComponent,
+    PricingCardsComponent,
+    TestimonialsSliderComponent,
+    PremiumFooterComponent,
+  ],
   template: `
-    <app-navbar></app-navbar>
-    
+    <a class="skip-to-main" href="#main-content">Skip to main content</a>
+    <app-navbar />
+
     <main class="landing-page" id="main-content" role="main">
-      <app-hero-section></app-hero-section>
-      <app-dashboard-cards></app-dashboard-cards>
-      <app-feature-cards></app-feature-cards>
-      <app-process-timeline></app-process-timeline>
-      <app-enterprise-cards></app-enterprise-cards>
-      <app-pricing-cards></app-pricing-cards>
-      <app-testimonials-slider></app-testimonials-slider>
-      <app-premium-footer></app-premium-footer>
-
-      <!-- Features Section -->
-      <!-- <app-features-section></app-features-section> -->
-
-      <!-- CTA Section -->
-      <!-- <app-cta-section></app-cta-section> -->
-
-      <!-- Footer Section -->
-      <!-- <app-footer-section></app-footer-section> -->
-
+      <app-hero-section />
+      <app-dashboard-cards />
+      <app-feature-cards />
+      <app-process-timeline />
+      <app-enterprise-cards />
+      <app-pricing-cards />
+      <app-testimonials-slider />
+      <app-premium-footer />
     </main>
   `,
   styleUrls: ['./landing.page.scss'],
@@ -74,23 +61,30 @@ export class LandingPageComponent implements OnInit {
 
   private setSEO(): void {
     this.seoService.setMeta({
-      title: 'Kalpra - Production Ready Landing Page',
-      description: 'Modern, scalable Angular 21 landing page with Signals, Standalone Components, and best practices',
-      keywords: ['angular', 'landing', 'responsive', 'seo', 'production'],
-      ogTitle: 'Kalpra - Angular 21 Landing Page',
-      ogDescription: 'Production-ready landing page built with Angular 21',
+      title: 'Kalpra — Engineering Intelligence, Powered by AI',
+      description:
+        'AI-driven engineering intelligence across GitHub, Jira, Storybook, CI/CD, and Design Systems. Built for teams that ship with clarity.',
+      keywords: [
+        'engineering intelligence',
+        'AI',
+        'developer productivity',
+        'design systems',
+        'enterprise SaaS',
+      ],
+      ogTitle: 'Kalpra — Engineering Intelligence',
+      ogDescription:
+        'Make better engineering decisions with AI-driven insights across your entire delivery stack.',
       ogImage: 'assets/images/og-image.png',
-      author: 'Kalpra Team',
+      author: 'Kalpra',
       twitterCard: 'summary_large_image',
       twitterSite: '@kalpra',
     });
 
-    // Set JSON-LD structured data
     this.seoService.setStructuredData({
       '@context': 'https://schema.org',
       '@type': 'WebPage',
-      name: 'Kalpra Landing Page',
-      description: 'Modern, scalable Angular 21 landing page',
+      name: 'Kalpra — Engineering Intelligence',
+      description: 'AI-driven engineering intelligence for modern teams',
       url: 'https://kalpra.com',
     });
   }

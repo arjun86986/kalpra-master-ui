@@ -6,6 +6,7 @@
 
 @use './kalpra-brand' as *;
 @use './kalpra-components' as *;
+@use './kalpra-landing' as *;
 @use './mixins' as *;
 
 // ============================================================
@@ -22,6 +23,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {

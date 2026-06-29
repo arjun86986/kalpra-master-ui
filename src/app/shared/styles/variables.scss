@@ -29,10 +29,31 @@ $color-text-inverse: #ffffff;
 $color-bg-primary: #ffffff;
 $color-bg-secondary: #f5f5f5;
 $color-bg-tertiary: #ececec;
+$color-bg-card: #ffffff; // New variable for card background
 
 $color-border: #e0e0e0;
 $color-border-light: #f0f0f0;
 $color-border-dark: #cccccc;
+
+// Dark Theme Specific Colors (Defaults, will be overridden by prefers-color-scheme)
+$color-dark-primary: #8ab4f8; // Adjusted primary for dark theme
+$color-dark-primary-dark: #669df6;
+$color-dark-primary-light: #a6caff;
+
+$color-dark-text-primary: #e8e8e8;
+$color-dark-text-secondary: #b0b0b0;
+$color-dark-text-light: #808080;
+$color-dark-text-inverse: #1a1a1a; // Inverse for dark theme
+
+$color-dark-bg-primary: #121212; // Deeper dark background
+$color-dark-bg-secondary: #1e1e1e;
+$color-dark-bg-tertiary: #2a2a2a;
+$color-dark-bg-card: #1e1e1e; // Card background for dark theme
+
+$color-dark-border: #404040;
+$color-dark-border-light: #2a2a2a;
+$color-dark-border-dark: #555555;
+
 
 // ============================================================
 // Typography

@@ -40,8 +40,8 @@ $color-bg-active: #2E3652; // Active state
 
 $color-text-primary: #FFFFFF; // Primary text
 $color-text-secondary: #B8BDD1; // Secondary text
-$color-text-tertiary: #8A8F9E; // Tertiary text
-$color-text-muted: #5E6477; // Muted text
+$color-text-tertiary: #9BA3B8; // Tertiary text — AA on dark bg
+$color-text-muted: #6B7289; // Muted text — AA for large text
 
 $color-border: #2A3048; // Border color
 $color-border-light: #383E52; // Light border
@@ -307,20 +307,4 @@ $container-wide: 1280px;
   }
 }
 
-// ============================================================
-// Light Mode (Optional Alternative)
-// ============================================================
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg-primary: #ffffff;
-    --color-bg-secondary: #f9fafb;
-    --color-bg-tertiary: #f3f4f6;
-
-    --color-text-primary: #050816;
-    --color-text-secondary: #4b5563;
-    --color-text-tertiary: #7a8190;
-
-    --color-border: #e5e7eb;
-    --color-border-light: #f3f4f6;
-  }
-}
+// Landing page is dark-theme only for premium enterprise aesthetic
