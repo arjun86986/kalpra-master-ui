@@ -9,8 +9,8 @@
  * - Signals for state management
  */
 
-import { Component, OnInit, signal, computed } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, OnDestroy, OnInit, PLATFORM_ID, computed, inject, signal } from '@angular/core';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 interface NavLink {
@@ -25,7 +25,18 @@ interface NavLink {
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
+  private readonly platformId = inject(PLATFORM_ID);
+  private readonly isBrowser = isPlatformBrowser(this.platformId);
+
+  private readonly resizeHandler = () => {
+    this.windowWidth.set(window.innerWidth);
+  };
+
+  private readonly scrollHandler = () => {
+    this.isScrolled.set(window.scrollY > 10);
+  };
+
   // ============================================================
   // Signals & State Management
   // ============================================================
@@ -53,18 +64,22 @@ export class NavbarComponent implements OnInit {
   ];
 
   ngOnInit(): void {
-    // Set initial window width
+    if (!this.isBrowser) {
+      return;
+    }
+
     this.windowWidth.set(window.innerWidth);
+    window.addEventListener('resize', this.resizeHandler);
+    window.addEventListener('scroll', this.scrollHandler);
+  }
 
-    // Listen for window resize
-    window.addEventListener('resize', () => {
-      this.windowWidth.set(window.innerWidth);
-    });
+  ngOnDestroy(): void {
+    if (!this.isBrowser) {
+      return;
+    }
 
-    // Listen for scroll events
-    window.addEventListener('scroll', () => {
-      this.isScrolled.set(window.scrollY > 10);
-    });
+    window.removeEventListener('resize', this.resizeHandler);
+    window.removeEventListener('scroll', this.scrollHandler);
   }
 
   // ============================================================
