@@ -3,7 +3,7 @@
 .landing-page {
   flex: 1;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
   background-color: $color-bg-primary;
 
   // Ambient mesh — subtle, no clutter
